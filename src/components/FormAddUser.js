@@ -12,7 +12,7 @@ const FormAddUser = ({ list, handleChangeState }) => {
 
   return (
     <div className="add_user">
-      <h3>add new user</h3>
+      <h3>Add new user</h3>
       <form onSubmit={e => handleSubmit(e)}>
         <div>
           <div>

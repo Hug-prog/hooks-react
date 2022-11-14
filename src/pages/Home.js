@@ -42,46 +42,49 @@ const Home = () => {
   };
 
   return (
-    <div className="home_container">
-      {UserUpdate ? (
-        <UpdateForm updateObjectInArray={updateObjectInArray} user={user} />
-      ) : (
-        <FormAddUser list={userList} handleChangeState={handleChangeState} />
-      )}
-      <div className="container">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>UserName</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userList.map((res, i) => {
-              return (
-                <tr key={i}>
-                  <td>{res.name}</td>
-                  <td>{res.userName}</td>
-                  <td>
-                    <button
-                      className="btn btn-light"
-                      onClick={() => handleUpdate(res)}
-                    >
-                      edit
-                    </button>
-                    <button
-                      className="btn btn-light"
-                      onClick={() => handleDelete(res.id)}
-                    >
-                      delete
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+    <div className="home">
+      <h1>CRUD App with Hooks</h1>
+      <div className="home_container">
+        {UserUpdate ? (
+          <UpdateForm updateObjectInArray={updateObjectInArray} user={user} />
+        ) : (
+          <FormAddUser list={userList} handleChangeState={handleChangeState} />
+        )}
+        <div className="container">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>UserName</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userList.map((res, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{res.name}</td>
+                    <td>{res.userName}</td>
+                    <td>
+                      <button
+                        className="btn btn-light"
+                        onClick={() => handleUpdate(res)}
+                      >
+                        edit
+                      </button>
+                      <button
+                        className="btn btn-light"
+                        onClick={() => handleDelete(res.id)}
+                      >
+                        delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

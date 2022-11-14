@@ -16,7 +16,7 @@ const UpdateForm = ({ updateObjectInArray, user }) => {
 
   return (
     <div className="add_user">
-      <h3>add new user</h3>
+      <h3>Update user</h3>
       <form onSubmit={e => handleSubmit(e)}>
         <div>
           <div>
