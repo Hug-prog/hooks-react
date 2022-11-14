@@ -7,7 +7,7 @@ const Home = () => {
 
   const [userList, setUserList] = useState(initdata);
   const [UserUpdate, setUserUpdate] = useState(false);
-  const [userId, setUserId] = useState(0);
+  const [user, setUser] = useState("");
 
   const handleChangeState = infoUser => {
     setUserList(userList => [...userList, infoUser]);
@@ -19,8 +19,8 @@ const Home = () => {
     setUserList(newUserList);
   };
 
-  const handleUpdate = id => {
-    setUserId(id);
+  const handleUpdate = user => {
+    setUser(user);
     setUserUpdate(true);
   };
 
@@ -28,7 +28,6 @@ const Home = () => {
     setUserList(userList =>
       userList.map(obj => {
         if (obj.id === id) {
-          console.log("ok");
           return {
             ...obj,
             id: id,
@@ -42,12 +41,10 @@ const Home = () => {
     setUserUpdate(false);
   };
 
-  console.log(userList);
-
   return (
     <div className="home_container">
       {UserUpdate ? (
-        <UpdateForm updateObjectInArray={updateObjectInArray} user={userId} />
+        <UpdateForm updateObjectInArray={updateObjectInArray} user={user} />
       ) : (
         <FormAddUser list={userList} handleChangeState={handleChangeState} />
       )}
@@ -69,7 +66,7 @@ const Home = () => {
                   <td>
                     <button
                       className="btn btn-light"
-                      onClick={() => handleUpdate(res.id)}
+                      onClick={() => handleUpdate(res)}
                     >
                       edit
                     </button>

@@ -7,8 +7,8 @@ const UpdateForm = ({ updateObjectInArray, user }) => {
   const handleSubmit = e => {
     e.preventDefault();
     e.target.reset();
-    updateObjectInArray(user, {
-      id: user,
+    updateObjectInArray(user.id, {
+      id: user.id,
       name: name,
       userName: userName,
     });
@@ -22,7 +22,7 @@ const UpdateForm = ({ updateObjectInArray, user }) => {
           <div>
             {" "}
             <input
-              placeholder="Name"
+              placeholder={user.name}
               type="text"
               onChange={e => {
                 setName(e.target.value);
@@ -31,7 +31,7 @@ const UpdateForm = ({ updateObjectInArray, user }) => {
           </div>
           <div>
             <input
-              placeholder="UserName"
+              placeholder={user.userName}
               type="text"
               onChange={e => {
                 setUserName(e.target.value);
